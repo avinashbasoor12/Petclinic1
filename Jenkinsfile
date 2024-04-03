@@ -58,7 +58,7 @@ pipeline {
             steps{
                 script{
                    withDockerRegistry(credentialsId: '58be877c-9294-410e-98ee-6a959d73b352', toolName: 'docker') {
-                        
+                        sh "chmod 666 /var/run/docker.sock"
                         sh "docker build -t image1 ."
                         sh "docker tag image1 adijaiswal/pet-clinic123:latest "
                         sh "docker push adijaiswal/pet-clinic123:latest "
